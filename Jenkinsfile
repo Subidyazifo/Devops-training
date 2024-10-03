@@ -9,6 +9,7 @@ pipeline {
                 git url: 'https://github.com/Subidyazifo/Devops-training.git'
             }
         }
+  }
 
         stage("Build docker image") {
             steps {
