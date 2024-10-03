@@ -8,7 +8,7 @@ pipeline {
                     url: 'https://github.com/Subidyazifo/Devops-training.git'
             }
         }
-    }
+    
     stage("Build docker image") {
             steps {
                script {
@@ -16,4 +16,5 @@ pipeline {
                }
             }
         }
+    }
 }
