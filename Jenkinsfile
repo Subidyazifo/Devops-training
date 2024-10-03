@@ -9,4 +9,11 @@ pipeline {
             }
         }
     }
+    stage("Build docker image") {
+            steps {
+               script {
+                 docker.build("devopd-demo:latest","./docker")
+               }
+            }
+        }
 }
