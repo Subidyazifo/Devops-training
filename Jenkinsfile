@@ -12,7 +12,7 @@ pipeline {
     stage("Build docker image") {
             steps {
                script {
-                 sh "docker build --user jenkins:jenkins -t devops-demo:latest /var/lib/docker"
+                 docker.build("devopd-demo:latest","/var/lib/docker")
                }
             }
         }
