@@ -9,12 +9,12 @@ pipeline {
             }
         }
      stage('Install Dependencies'){
-    steps{
-        script{
-            sh 'npm install'
-              }
-        }
-    }
+        steps{
+           script{
+              sh 'npm install'
+                 }
+            }
+    }   
      stage('Sonarqube Analysis'){
          steps {
           script {
@@ -23,6 +23,14 @@ pipeline {
          }
       }
      }
+        stage("Quality Gate"){
+          timeout(time: 1, unit: 'HOURS') {
+              def qg = waitForQualityGate()
+              if (qg.status != 'OK') {
+                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+              }
+          }
+      }
     stage("Build docker image") {
             steps {
                script {
