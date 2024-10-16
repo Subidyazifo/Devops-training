@@ -8,7 +8,21 @@ pipeline {
                     url: 'https://github.com/Subidyazifo/Devops-training.git'
             }
         }
-    
+     stage('Install Dependencies'){
+        script{
+            sh 'npm install'
+        }
+    }
+     stage('Sonarqube Analysis'){
+         steps {
+          script {
+            def scannerHome = tool 'SonarQubeScanner'
+            withSonarQubeEnv('SonarQube'){
+              Sh "${scannerHome}/bin/Sonar-scanner"
+            }    
+         }
+      }
+     }
     stage("Build docker image") {
             steps {
                script {
