@@ -2,6 +2,11 @@
 pipeline {
     agent any
     stages {
+        stage('check PATH') {
+            steps {
+                sh 'echo $PATH'
+            }
+        }
         stage('Checkout') {
             steps {
                 git branch: 'main', 
