@@ -12,7 +12,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', 
-                    url: 'https://github.com/Subidyazifo/Devops-training.git'
+                    url: 'https://github.com/Subidyazifo/Devops-training.git',
+                    credentialsId: 'git-credintial'
             }
         }
         stage('Install Dependencies') {
