@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/username/private-repo.git',
+                    url: 'https://github.com/Subidyazifo/Devops-training.git',
                     credentialsId: 'git-credintial'
             }
         }
