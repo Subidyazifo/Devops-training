@@ -5,7 +5,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/Subidyazifo/Devops-training.git',
-                    credentialsId: 'git-credintial'
+                    credentialsId: '66b6f463-b170-4941-878e-9fbf3090d841'
             }
         }
     }
